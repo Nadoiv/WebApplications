@@ -1,0 +1,14 @@
+<mat-toolbar class="mat-elevation-z1">
+  <mat-icon>filter_list</mat-icon>
+  <mat-form-field>
+    <mat-select placeholder="Origin" [(value)]="filter.origins" multiple (selectionChange)="emitFilterRequest()">
+      <mat-option *ngFor="let origin of origins" [value]="origin">{{origin}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="search-input">
+    <input type="text" matInput placeholder="Search..." [(ngModel)]="filter.search" (ngModelChange)="filterUpdate.next($event)">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+</mat-toolbar>
