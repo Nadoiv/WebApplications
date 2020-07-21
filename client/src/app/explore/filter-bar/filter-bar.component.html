@@ -1,0 +1,37 @@
+<mat-toolbar class="mat-elevation-z1">
+    <mat-icon>filter_list</mat-icon>
+    <div class="container">
+        <mat-form-field class="item">
+            <mat-select placeholder="Hand" [(value)]="filter.hands" multiple
+                (selectionChange)="emitFilterRequest()">
+                <mat-select-trigger>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let hand of filter.hands">{{hand}}</mat-chip>
+                    </mat-chip-list>
+                </mat-select-trigger>
+                <mat-option [value]="1">1</mat-option>
+                <mat-option [value]="2">2</mat-option>
+                <mat-option [value]="3">3</mat-option>
+                <mat-option [value]="4">4</mat-option>
+                <mat-option [value]="5">5</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="item">
+            <mat-select placeholder="Models" [(value)]="filter.types" multiple (selectionChange)="emitFilterRequest()">
+                <mat-option *ngFor="let type of types" [value]="type._id">{{type.Automobile}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="item">
+            <span class="form-title">
+                Minimun Manufactured
+            </span>
+            <mat-slider min="1940" max="2020" step="1" thumbLabel="true" [(value)]="filter.manufactured"
+                (change)="emitFilterRequest()">
+            </mat-slider>
+        </div>
+    </div>
+    <span class="spacer"></span>
+    <mat-slide-toggle [(ngModel)]="mapView.show">Map View</mat-slide-toggle>
+</mat-toolbar>

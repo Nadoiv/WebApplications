@@ -1,0 +1,28 @@
+mat-toolbar {
+    font-size: 1em;
+    margin-top: 10px;
+    height: 100px;
+    background-color:white;    
+}
+
+.container {
+    width: 40%;
+    display: flex;
+}
+
+.item {
+    margin: auto;
+}
+
+.form-title {
+    font-size: 1em;
+    margin-right: 5px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+  }
+
+mat-slider {
+    scrollbar-color: black;
+  }

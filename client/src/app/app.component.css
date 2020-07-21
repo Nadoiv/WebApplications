@@ -4,8 +4,14 @@
 
 .toolbar-button {
   margin: 0 5px;
+  background-color: white;
 }
 
 .active-link {
-  background-color:skyblue;
+  background-color:rgb(237, 218, 255);
+}
+
+.mat-toolbar.mat-primary {
+  background-color: #C8A2C8;
+  color: black;
 }

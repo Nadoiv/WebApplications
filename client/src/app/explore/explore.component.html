@@ -1,0 +1,171 @@
+<app-filter-bar [mapView]="mapView" (filterRequest)="filter($event)"></app-filter-bar>
+
+<mat-grid-list *ngIf="cars.length && !mapView.show" cols="4" style="margin-top: 40px;" rowHeight="10:11" gutterSize="20">
+  <mat-grid-tile *ngFor="let car of cars">
+    <mat-card class="car-card">
+      <mat-card-header>
+        <mat-card-title>{{car.type.Automobile}}</mat-card-title>
+        <mat-card-subtitle>hands: {{car.hand}}, manufactured: {{car.manufactured}}</mat-card-subtitle>
+        <span class="spacer"></span>
+        <button mat-icon-button color="primary">
+          <mat-icon matTooltipPosition="above" matTooltip="Mark as rented" (click)="rented(car)" svgIcon="rent-car">
+          </mat-icon>
+        </button>
+        <button (click)="openEditDialog(car)" mat-icon-button color="primary">
+          <mat-icon matTooltipPosition="above" matTooltip="Edit">edit</mat-icon>
+        </button>
+        <button (click)="remove(car)" mat-icon-button color="warn">
+          <mat-icon matTooltipPosition="above" matTooltip="Delete">delete_outline</mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <img mat-card-image [@simpleFadeAnimation]="'in'" [src]="car.image">
+      <mat-divider></mat-divider>
+      <mat-card-footer>
+        <div class="info-block">
+          <div>
+            <mat-icon class="agent-info">
+              person_outline
+            </mat-icon>
+          </div>
+          <div>
+            <span>
+              {{car.carAgent.fullName}}
+            </span>
+          </div>
+        </div>
+        <div class="info-block">
+          <div>
+            <mat-icon class="agent-info">
+              mail_outline
+            </mat-icon>
+          </div>
+          <div>
+            <span>
+              {{car.carAgent.email}}
+            </span>
+          </div>
+        </div>
+        <div class="info-block">
+          <div>
+            <mat-icon class="agent-info">
+              phone_android
+            </mat-icon>
+          </div>
+          <div>
+            <span>
+              {{car.carAgent.phoneNumber}}
+            </span>
+          </div>
+        </div>
+        <div class="info-block">
+          <div>
+            <mat-icon class="agent-info">
+              location_city
+            </mat-icon>
+          </div>
+          <div>
+            <span>
+              {{car.carAgent.address.country}}, {{car.carAgent.address.city}}, {{car.carAgent.address.street}},
+              {{car.carAgent.address.number}}
+            </span>
+          </div>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<div class="map-container mat-elevation-z1">
+  <agm-map *ngIf="mapView.show" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker *ngFor="let car of cars" [latitude]="car.carAgent.address.location.lat"
+      [longitude]="car.carAgent.address.location.lng" [title]="lala">
+      <agm-info-window>
+        <mat-card class="car-card">
+          <mat-card-header>
+            <mat-card-title>{{car.type.Automobile}}</mat-card-title>
+            <mat-card-subtitle>hands: {{car.hand}}, manufactured: {{car.manufactured}}</mat-card-subtitle>
+            <span class="spacer"></span>
+            <button mat-icon-button color="primary">
+              <mat-icon matTooltipPosition="above" matTooltip="Mark as rented" (click)="rented(car)"
+                svgIcon="rent-car">
+              </mat-icon>
+            </button>
+            <button (click)="openEditDialog(car)" mat-icon-button color="primary">
+              <mat-icon matTooltipPosition="above" matTooltip="Edit">edit</mat-icon>
+            </button>
+            <button (click)="remove(car)" mat-icon-button color="warn">
+              <mat-icon matTooltipPosition="above" matTooltip="Delete">delete_outline</mat-icon>
+            </button>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <img mat-card-image [@simpleFadeAnimation]="'in'" [src]="car.image">
+          <mat-divider></mat-divider>
+          <mat-card-footer>
+            <div class="info-block">
+              <div>
+                <mat-icon class="agent-info">
+                  person_outline
+                </mat-icon>
+              </div>
+              <div>
+                <span>
+                  {{car.carAgent.fullName}}
+                </span>
+              </div>
+            </div>
+            <div class="info-block">
+              <div>
+                <mat-icon class="agent-info">
+                  mail_outline
+                </mat-icon>
+              </div>
+              <div>
+                <span>
+                  {{car.carAgent.email}}
+                </span>
+              </div>
+            </div>
+            <div class="info-block">
+              <div>
+                <mat-icon class="agent-info">
+                  phone_android
+                </mat-icon>
+              </div>
+              <div>
+                <span>
+                  {{car.carAgent.phoneNumber}}
+                </span>
+              </div>
+            </div>
+            <div class="info-block">
+              <div>
+                <mat-icon class="agent-info">
+                  location_city
+                </mat-icon>
+              </div>
+              <div>
+                <span>
+                  {{car.carAgent.address.country}}, {{car.carAgent.address.city}}, {{car.carAgent.address.street}},
+                  {{car.carAgent.address.number}}
+                </span>
+              </div>
+            </div>
+          </mat-card-footer>
+        </mat-card>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>
+
+<button class="addButton" *ngIf="!mapView.show" (click)="openAddDialog()" mat-fab color="primary">
+  <mat-icon>add</mat-icon>
+</button>
+
+
+
+<div class="no-result" *ngIf="cars.length === 0">
+  <img src="../../assets/no-result.png">
+  <h2>
+    Sorry, we didn't find what you seek...
+  </h2>
+</div>
