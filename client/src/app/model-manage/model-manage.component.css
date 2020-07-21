@@ -1,0 +1,23 @@
+img {
+  width: 100px;
+  height: 100px;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  width:25%;
+}
+
+.container {
+  width: 65%;
+  margin: auto;
+}
+
+.mat-fab {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+}
