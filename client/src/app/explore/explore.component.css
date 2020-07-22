@@ -14,9 +14,11 @@ mat-card {
 }
 
 img {
-    width:450px;
-    height: 300px; 
+    margin-left: auto;
+    width:420px;
+    height: 280px; 
     object-fit: cover;
+    border-radius: 10px;
 }
 
 p {
