@@ -50,7 +50,7 @@ export class GraphComponent implements OnInit {
     this.svg = d3.select(".chart")
       .attr('width', this.width + this.margin.left + this.margin.right)
       .attr('height', this.height + this.margin.top + this.margin.bottom)
-      .style('background-color', 'rgb(96,125,139)')
+      .style('background-color', 'rgb(179, 184, 187)')
       .append('g')
       .attr('transform', d => `translate(${this.margin.left}, ${this.margin.top})`)
   }

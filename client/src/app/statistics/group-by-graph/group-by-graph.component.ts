@@ -74,7 +74,7 @@ export class GroupByGraphComponent implements OnInit {
       .attr('width', this.width + this.margin.left + this.margin.right)
       .attr('height', this.height + this.margin.top + this.margin.bottom)
       .style('color', 'white')
-      .style('background-color', 'rgb(96,125,139)')
+      .style('background-color', 'rgb(179, 184, 187)')
       .append('g')
       .attr('transform', `translate(${this.margin.left},${this.margin.top})`)
   }
