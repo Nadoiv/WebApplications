@@ -1,8 +1,17 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+@font-face {
+  font-family: OpenSansHebrew;
+  src: url(assets/fonts/OpenSansHebrew-Regular.ttf) format("opentype")
+}
+
+*{
+  font-family: 'OpenSansHebrew';
+}
+
+
 body {
-  background-color:#f5f5f5;
   font-family: sans-serif;
   overflow-y: scroll;
-
+  background-color: #EDE1ED;
 }
