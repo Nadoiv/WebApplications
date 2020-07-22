@@ -1,0 +1,52 @@
+<mat-grid-list class="container" cols="2" rowHeight="5:1" gutterSize="50">
+  <mat-grid-tile class="section mat-elevation-z1">
+    <div [@simpleFadeAnimation] class="stat blue mat-elevation-z3">
+      <div class="block">
+        <div>
+          <p>
+            Total Views
+          </p>
+          <mat-icon>touch_app</mat-icon>
+        </div>
+      </div>
+      <div class="block">
+        <div class="value">
+          <p>
+            {{statisticsData.hitCount}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div [@simpleFadeAnimation] class="stat green mat-elevation-z3">
+      <div class="block">
+        <div>
+          <p>
+            Online Clients
+          </p>
+          <mat-icon>person</mat-icon>
+        </div>
+      </div>
+      <div class="block">
+        <div class="value">
+          <p>
+            {{statisticsData.numberOfConnectedClients}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile rowspan="4" class="section mat-elevation-z1">
+    <div class="group-by-title">
+      <h2>Car Renting Statistics</h2>
+      <mat-button-toggle-group [(value)]="selectedGroup" class="button-group">
+        <mat-button-toggle *ngFor="let group of statisticsData.groupBy" [value]="group" (click)="groupObsv.next(group)">
+          {{group.field}}</mat-button-toggle>
+      </mat-button-toggle-group>
+      <app-group-by-graph [@simpleFadeAnimation] [group]="statisticsData.groupBy[0]" [groupObsv]="groupObsv">
+      </app-group-by-graph>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile rowspan="3" class="section mat-elevation-z1">
+    <app-graph [@simpleFadeAnimation] [statisticsData]="statisticsData"></app-graph>
+  </mat-grid-tile>
+</mat-grid-list>

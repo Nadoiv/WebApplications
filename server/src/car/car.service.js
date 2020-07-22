@@ -78,6 +78,10 @@ class carService {
       }
     })
 
+    aggregateQuery.push({
+      $limit : 6
+    })    
+
     if (field === "type") {
       aggregateQuery.push({
         $lookup: {
@@ -95,7 +99,7 @@ class carService {
   mapReduceHandType() {
     var o = {};
     o.map = function () {
-      emit(this.hand, this.manufactured)
+      emit(this.hand, this.mileage)
     }
 
     o.reduce = function (k, values) {

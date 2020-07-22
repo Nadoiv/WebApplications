@@ -33,7 +33,7 @@ export class ModelManageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.data.subscribe((data: { types : Type[] }) => {
+    this.route.data.subscribe((data: { types: Type[] }) => {
       this.dataSource = new MatTableDataSource<Type>(data.types);
       this.dataSource.paginator = this.paginator;
       // this.productions = data.type.map(type => type.Production).filter((value, index, self) => self.indexOf(value) === index).sort()
@@ -98,7 +98,7 @@ export class ModelManageComponent implements OnInit {
   openEditDialog(type) {
     const dialogRef = this.editDialog.open(EditComponent, {
       width: '300px',
-      data: { type: {...type}, origins: this.productions }
+      data: { type: { ...type }, origins: this.productions }
     })
 
     dialogRef.afterClosed().subscribe(updatedType => {

@@ -29,9 +29,9 @@ export class StatisticsService {
         group.data.forEach(it => {
           it.count = it.count || it.value
         });
-        if (group.field === "Type") {
+        if (group.field === "Model") {
           group.data.forEach(it => {
-            it._id = it.type[0].Type
+            it._id = it.type[0].Automobile
           })
 
         }

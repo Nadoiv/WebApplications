@@ -1,5 +1,5 @@
 <div class="container">
-  <!-- <app-filter-bar (filterRequest)="filter($event)" [origins]="origins"></app-filter-bar> -->
+  <app-filter-bar (filterRequest)="filter($event)"></app-filter-bar>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
     <ng-container matColumnDef="Model">
       <th mat-header-cell *matHeaderCellDef>Model</th>
@@ -30,6 +30,6 @@
   </table>
   <mat-paginator [length]="dataSource.length" [pageSize]="6" class="mat-elevation-z1"></mat-paginator>
 </div>
-<button (click)="openAddDialog()" mat-fab color="primary">
+<button class="addButton" (click)="openAddDialog()" mat-fab color="primary">
   <mat-icon>add</mat-icon>
 </button>

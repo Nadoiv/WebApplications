@@ -44,7 +44,7 @@ class scrapeService {
       return {
         Automobile: car.Automobile,
         Image: car.Image,
-        Production: car.Production
+        Production: car.Production.substring(0, 4)
       };
     });
   }

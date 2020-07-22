@@ -59,10 +59,10 @@ class dataGeneratorService {
     for (let index = 0; index < amount; index++) {
       const type = this.getRandomItemFromArray(types);
       const image = type.Image;
-      const year = this.getRandomInt(+type.Production.substring(0, 4), 2021);
+      const year = this.getRandomInt(type.Production, 2021);
       const hand = year === 2020 ? 1 : this.getRandomInt(1, 5);
       const isRented = this.getRandomItemFromArray(['false', 'true']);
-      const mileage = 10000 * 2020 - year;
+      const mileage = 10000 * (2020 - year);
       const carAgent = this.getRandomItemFromArray(userIds);
 
       const newCar = new carModel({

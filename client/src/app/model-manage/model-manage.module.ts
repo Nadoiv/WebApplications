@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ModelManageRoutingModule } from './model-manage-routing.module';
 import { ModelManageComponent } from './model-manage.component';
-import { MatTableModule, MatPaginatorModule, MatIconModule, MatButtonModule, MatTooltipModule, MatToolbarModule, MatOptionModule, MatSelectModule, MatInputModule, MatDialogModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatIconModule, MatButtonModule, MatTooltipModule, MatToolbarModule, MatOptionModule, MatSelectModule, MatInputModule, MatDialogModule, MatSliderModule, MatSlideToggleModule } from '@angular/material';
 import { FilterBarComponent } from './filter-bar/filter-bar.component';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule } from '@angular/forms';
@@ -24,8 +24,10 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatInputModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatSliderModule,
+    MatSlideToggleModule
   ],
-  entryComponents:[EditComponent]
+  entryComponents: [EditComponent]
 })
 export class ModelManageModule { }

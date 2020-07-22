@@ -17,7 +17,7 @@ class typeService {
     const aggregateQuery = [];
     let matchQuery = {};
     matchQuery.Production = { $gte: filter.production }
-    matchQuery.Automobile = { $regex: filter.type }
+    matchQuery.Automobile = { $regex: filter.type , $options : 'i'}
     
     aggregateQuery.push({ $match: matchQuery })
     return typeModel.aggregate(aggregateQuery).exec();
