@@ -1,0 +1,84 @@
+.car-card {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.addButton {
+    background-color: #C8A2C8;
+}
+
+mat-card {
+    max-width: 420px;
+    border-radius: 27px;
+    background-color:  white;
+}
+
+img {
+    width:450px;
+    height: 300px; 
+    object-fit: cover;
+}
+
+p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    height: 80px;
+}
+
+.no-results {
+    margin: auto;
+    width: 30%;
+    margin-top: 10%;
+    opacity: 0.5;
+}
+
+.no-results h2 {
+    margin: auto;
+    width: 80%;
+}
+
+.no-results img {
+    display: block;
+    width: 30%;
+    height: auto;
+    margin: auto;
+}
+
+.info-block {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.info-block div {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.info-block div span {
+    margin-left: 2px;
+    font-size: 0.8em;
+}
+
+.mat-fab {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.map-container {
+    margin-top:20px;
+}
+
+agm-map {
+    height: 700px;
+  }
