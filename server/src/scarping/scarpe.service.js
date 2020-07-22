@@ -10,7 +10,6 @@ class scrapeService {
 
     $('#mw-content-text > div > table:nth-child(12) > tbody > tr:nth-child(1) th').each((i, el) => {
       titles.push($(el).text().replace('\n', ''));
-      console.log($(el).text().replace('\n', ''));
     })
 
     $('table.wikitable').find('tr').each((i, el) => {
@@ -38,8 +37,7 @@ class scrapeService {
       }
     });
 
-    console.log(cars);
-    console.log(cars.length);
+    console.log(`Scraped ${cars.length} car models`);
     return cars.map(car => {
       return {
         Automobile: car.Automobile,
