@@ -1,5 +1,4 @@
 var typeModel = require('./type.model');
-var AhoCorasick = require('ahocorasick');
 
 class typeService {
   constructor() {
@@ -15,20 +14,11 @@ class typeService {
   }
 
   filter(filter) {
-    const { origins } = filter;
     const aggregateQuery = [];
     let matchQuery = {};
-    if (origins.length > 0) {
-      matchQuery.Origin = { $in: origins }
-    }
-
-    if (filter.search) {
-      let originResult = this.originsAho.search(filter.search);
-      let typeResult = this.typeAho.search(filter.search);
-
-      matchQuery.$or = [{ type: { $in: [].concat.apply([], typeResult.map(it => it[1])) } }, { Origin: { $in: [].concat.apply([], originResult.map(it => it[1])) } }]
-    }
-
+    matchQuery.Production = { $gte: filter.production }
+    matchQuery.Automobile = { $regex: filter.type }
+    
     aggregateQuery.push({ $match: matchQuery })
     return typeModel.aggregate(aggregateQuery).exec();
   }
